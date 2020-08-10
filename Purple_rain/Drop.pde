@@ -1,17 +1,28 @@
 class Drop
 {
-  float x = width/2;
-  float y = 0;
-  float yspeed = 1;
+  float x = random(width);
+  float y = random(-500,-50);
+  float z = random(0,20);
+  float len = map(z,0,20,10,20);
+  float yspeed = map(z, 0, 20, 4, 10);
   
   void fall()
   {
     y = y + yspeed;
+    float grav = map(z, 0, 20, 0.01, 0.2);
+    yspeed = yspeed + grav;
+    if(y > height)
+    {
+      y = random(-200,-100);
+      yspeed = map(z, 0, 20, 4, 10);
+    }
   }
   
   void show()
   {
+    float thick = map(z, 0, 20, 1, 3); //the rain drop will be 1 pixel when it is away and 3 pixels when it is close
+    strokeWeight(thick);
     stroke(138, 43, 226);
-    line(x,y,x,y+10);
+    line(x,y,x,y+10+len);
   }
 }

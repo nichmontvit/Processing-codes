@@ -35,4 +35,5 @@ void draw() {
     b.show();
   }
   a += 0.01;
+  println(frameRate);
 }

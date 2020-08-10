@@ -1,4 +1,4 @@
-Drop[] drops = new Drop[100];
+Drop[] drops = new Drop[500];
 
 void setup()
 {
